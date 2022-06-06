@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Carrier\CarrierController;
 use App\Http\Controllers\Port\PortController;
+use App\Http\Controllers\V1\RatesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['middleware' => ['api']], function () {
-    Route::get('port', PortController::class);
+    Route::get('port', [PortController::class,'getPort']);
     Route::get('carrier/json', [CarrierController::class, 'getJsonCarrier']);
     Route::get('carrier/xml', [CarrierController::class, 'getXmlCarrier']);
+
+    Route::get('quote/rates/{state1?}/{state2?}/{count?}', RatesController::class);
 });
