@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Port;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Storage;
 
 class PortController extends Controller
 {
@@ -18,7 +15,7 @@ class PortController extends Controller
      *
      * @return JsonResponse|array
      */
-    public function __invoke()
+    public function getPort()
     {
         $isExists = file_exists(storage_path() . self::PORTS);
 
