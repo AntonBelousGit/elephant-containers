@@ -36,8 +36,8 @@ class CarrierController extends Controller
             $xmlDataString = file_get_contents(storage_path() . self::XMLCARRIER);
             $xmlObject = simplexml_load_string($xmlDataString);
             $json = json_encode($xmlObject);
-
-            return json_decode($json, true);
+            $port = json_decode($json, true);
+            return $port['route'];
         }
 
         return response()->json([
