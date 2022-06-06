@@ -28,13 +28,14 @@ class RatesController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param null $state1
-     * @param null $state2
-     * @param null $count
+     * @param CheckIssetPortAction $action
+     * @param string|null $state1
+     * @param string|null $state2
+     * @param int|null $count
      * @return AnonymousResourceCollection|JsonResponse
      */
 
-    public function __invoke(CheckIssetPortAction $action, $state1 = null, $state2 = null, $count = null)
+    public function __invoke(CheckIssetPortAction $action, string $state1 = null, string $state2 = null, int $count = null)
     {
         if (is_null($state1) || is_null($state2) || is_null($count)) {
             return response()->json([

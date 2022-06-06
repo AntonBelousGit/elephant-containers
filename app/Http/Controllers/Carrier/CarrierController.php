@@ -27,7 +27,10 @@ class CarrierController extends Controller
             'message' => 'File not found',
         ], 404);
     }
-
+    /**
+     *
+     * @return JsonResponse|array
+     */
     public function getXmlCarrier()
     {
         $isExists = file_exists(storage_path() . self::XMLCARRIER);
